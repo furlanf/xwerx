@@ -1,0 +1,57 @@
+@import "./variables";
+.clients {
+  border-radius: 10px;
+  background: $bg-color-clients;
+  padding: 25px 35px 50px;
+
+  .navbar-title {
+    color: $main-color-clients;
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+  .navbar-collapse {
+    flex-basis: auto;
+    @media all and (max-width: 992px) {
+      flex-grow: 0;
+    }
+  }
+
+  a {
+    color: $main-color-clients;
+    &.nav-link {
+      color: #747f86;
+    }
+  }
+
+  &-title {
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: normal;
+    margin-top: 10px;
+  }
+  &-data {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    .increase {
+      margin-top: 23px;
+    }
+    .fa {
+      color: $main-color-clients;
+      font-size: 30px;
+    }
+  }
+
+  .text-highlight {
+    color: $main-color-clients;
+    font-size: 48px;
+    display: block;
+    text-align: center;
+    font-weight: normal;
+  }
+  .increase-wrapper {
+    height: 115px;
+  }
+}

@@ -1,0 +1,122 @@
+$breakpoint: 750px;
+/* Table column sizing
+================================== */
+.name-cell {
+  width: 30%;
+}
+.text-cell {
+  width: 40%;
+}
+.date-cell {
+  width: 15%;
+}
+.importance-cell {
+  width: 15%;
+}
+
+/* Apply styles
+================================== */
+.Rtable {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 0 0;
+  padding: 0;
+
+  .Rtable-row {
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
+    .Rtable-cell {
+      box-sizing: border-box;
+      flex-grow: 1;
+      padding: 1.2em;
+      overflow: hidden; // Or flex might break
+      list-style: none;
+      display: flex;
+      align-items: center;
+
+      &.column-heading {
+        color: white;
+        padding: 1.2em;
+      }
+
+      .Rtable-cell--heading {
+        display: none;
+      }
+
+      .Rtable-cell--content {
+        a {
+          font-size: 2em;
+          color: #333;
+        }
+      }
+    }
+  }
+}
+
+/* Responsive
+==================================== */
+@media all and (max-width: $breakpoint) {
+  .is-striped {
+    background-color: white;
+  }
+
+  .Rtable--collapse {
+    display: block;
+    width: 100%;
+    padding: 1em;
+    box-shadow: none;
+
+    .Rtable-row {
+      box-sizing: border-box;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+
+      .Rtable-cell {
+        width: 100% !important;
+        display: flex;
+        align-items: center;
+
+        .Rtable-cell--heading {
+          display: inline-block;
+          flex: 1;
+          max-width: 120px;
+          min-width: 120px;
+          font-weight: 700;
+          border-right: 1px solid #ccc;
+          margin-right: 1em;
+        }
+
+        .Rtable-cell--content {
+          flex: 2;
+          padding-left: 1em;
+        }
+      }
+    }
+
+    .topic-cell {
+      color: white;
+      font-weight: 700;
+      order: -1;
+
+      .Rtable-cell--content {
+        padding-left: 0 !important;
+      }
+    }
+
+    .Rtable-row--head {
+      display: none;
+    }
+  }
+}
+
+// Non-Flex modernizer fallback
+.no-flexbox .Rtable {
+  display: block;
+
+  &.Rtable-cell {
+    width: 100%;
+  }
+}

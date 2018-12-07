@@ -1,0 +1,137 @@
+<div class="alert mt-5">
+  <nav class="navbar navbar-expand-lg">
+    <h2 class="navbar-title">Alerts</h2>
+    <span class="navbar-sub">Latest alerts ({{ alerts.length }})</span>
+    <div class="collapse show navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#" role="button">
+            <i class="fa fa-pie-chart"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" role="button">
+            <i class="fa fa-filter"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" role="button">
+            <i class="fa fa-undo"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" role="button">
+            <i class="fa fa-gear"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <div class="dropdown">
+            <button
+              class="btn btn-outline-light dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Save
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="row">
+    <div class="col">
+      <div class="Rtable Rtable--4cols Rtable--collapse">
+        <div class="Rtable-row Rtable-row--head">
+          <div class="Rtable-cell importance-cell-heading column-heading">
+            <span>Importance</span> <i class="fa fa-sort-down"></i>
+          </div>
+        </div>
+
+        <div class="Rtable-row" *ngFor="let alert of alerts">
+          <div class="Rtable-cell name-cell">
+            <div class="Rtable-cell--content name-content">
+              <i class="fa fa-birthday-cake"></i> <span>{{ alert.name }}</span>
+            </div>
+          </div>
+          <div class="Rtable-cell text-cell">
+            <div class="Rtable-cell--content text-content">
+              <p>{{ alert.text }}</p>
+            </div>
+          </div>
+          <div class="Rtable-cell date-cell">
+            <div class="Rtable-cell--content date-content">
+              {{ alert.date }}
+            </div>
+          </div>
+          <div class="Rtable-cell importance-cell">
+            <div class="Rtable-cell--content importance-content">
+              <span>
+                {{
+                  alert.importance == 3
+                    ? "Very"
+                    : alert.importance == 2
+                    ? "Medium"
+                    : "Low"
+                }}
+              </span>
+              <div
+                class="signal"
+                [ngClass]="
+                  alert.importance == 3
+                    ? 'full'
+                    : alert.importance == 2
+                    ? 'medium'
+                    : 'small'
+                "
+              >
+                <div class="small"></div>
+                <div class="medium"></div>
+                <div class="full"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="Rtable-row">
+          <div class="Rtable-cell name-cell">
+            <div class="Rtable-cell--content name-content">
+              <i class="fa fa-birthday-cake"></i> <span>Adam Comptom</span>
+            </div>
+          </div>
+          <div class="Rtable-cell text-cell">
+            <div class="Rtable-cell--content text-content">
+              <p>Adam's End of Year Review coming up</p>
+            </div>
+          </div>
+          <div class="Rtable-cell date-cell">
+            <div class="Rtable-cell--content date-content">Feb 03</div>
+          </div>
+          <div class="Rtable-cell importance-cell">
+            <div class="Rtable-cell--content importance-content">
+              <span>Very</span>
+              <div class="signal medium">
+                <div class="small"></div>
+                <div class="medium"></div>
+                <div class="full"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="see-more">
+        <a class="btn">
+          <span>See more</span> <i class="fa fa-sort-down"></i>
+        </a>
+      </div>
+      <a class="view-all">View All</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+@import "./variables";
+
+$pie_width: 230px;
+$pie_height: $pie_width / 2;
+
+.pie-wrapper {
+  position: relative;
+  width: $pie_width;
+  height: $pie_height;
+  overflow: hidden;
+
+  .arc,
+  &:before {
+    content: "";
+    width: $pie_width;
+    height: $pie_height;
+    position: absolute;
+    transform-origin: 50% 0%;
+    left: 0;
+    box-sizing: border-box;
+  }
+
+  &:before {
+    border: 50px solid #596169;
+    border-bottom: none;
+    top: 0;
+    z-index: 1;
+    border-radius: 300px 300px 0 0;
+  }
+
+  .arc {
+    border: 50px solid $main-color-clients;
+    border-top: none;
+    border-radius: 0 0 300px 300px;
+    top: 100%;
+    z-index: 2;
+
+    &::before {
+      content: "";
+      height: 1px;
+      width: 5px;
+      position: absolute;
+      top: 0px;
+    }
+  }
+
+  .score {
+    width: $pie-width;
+    margin-top: ($pie-height/2);
+  }
+}
+
+@for $i from 1 through 100 {
+  .arc[data-value="#{$i}"] {
+    // @include animation(fill 2s);
+    transform: rotate(#{$i * 1.8}deg);
+    transition: All 5s ease;
+    border-color: $main-color-clients;
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: -40px;
+      top: 5px;
+    }
+  }
+}
