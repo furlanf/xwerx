@@ -42,9 +42,13 @@
       "value": "300"
     },
     {
+      "month": "Nov",
+      "value": "103"
+    },
+    {
       "month": "Dez",
-      "value": "300"
+      "value": "204"
     }
   ],
-  "increase": 199
+  "increase": 101
 }

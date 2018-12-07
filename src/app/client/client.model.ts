@@ -1,9 +1,9 @@
 export class Client {
-  active: Number;
+  active: number;
   last_months: Month[];
-  increase: Number;
+  increase: number;
 }
 export class Month {
-  month: String;
-  value: Number;
+  month: string;
+  value: number;
 }

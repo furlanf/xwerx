@@ -13,6 +13,8 @@ export class ClientComponent implements OnInit {
   chart = [];
   month = [];
   value = [];
+  stacked = [];
+  max_value: number = 300;
   constructor(private clientService: ClientService) {}
 
   ngOnInit() {
@@ -25,6 +27,7 @@ export class ClientComponent implements OnInit {
       response.last_months.forEach(y => {
         this.month.push(y.month);
         this.value.push(y.value);
+        this.stacked.push(this.max_value - y.value);
       });
       this.chart = new Chart("canvas", {
         type: "bar",
@@ -33,9 +36,13 @@ export class ClientComponent implements OnInit {
           datasets: [
             {
               data: this.value,
-              borderColor: "#596169",
               backgroundColor: "#69a3e5",
               fillColor: "#FFF",
+              fill: true
+            },
+            {
+              data: this.stacked,
+              backgroundColor: "#596169",
               fill: true
             }
           ]
@@ -44,11 +51,14 @@ export class ClientComponent implements OnInit {
           legend: {
             display: false
           },
+          events: [],
+
           scales: {
             xAxes: [
               {
                 display: false,
-                stacked: true
+                stacked: true,
+                barPercentage: 0.4
               }
             ],
             yAxes: [
