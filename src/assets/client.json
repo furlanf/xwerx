@@ -1,5 +1,50 @@
 {
   "active": 204,
-  "last_months": [],
+  "last_months": [
+    {
+      "month": "Jan",
+      "value": "180"
+    },
+    {
+      "month": "Feb",
+      "value": "200"
+    },
+    {
+      "month": "March",
+      "value": "210"
+    },
+    {
+      "month": "April",
+      "value": "190"
+    },
+    {
+      "month": "May",
+      "value": "240"
+    },
+    {
+      "month": "June",
+      "value": "230"
+    },
+    {
+      "month": "July",
+      "value": "260"
+    },
+    {
+      "month": "Aug",
+      "value": "210"
+    },
+    {
+      "month": "Sept",
+      "value": "300"
+    },
+    {
+      "month": "Oct",
+      "value": "300"
+    },
+    {
+      "month": "Dez",
+      "value": "300"
+    }
+  ],
   "increase": 199
 }
